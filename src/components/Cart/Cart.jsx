@@ -13,8 +13,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
     const renderEmptyCart = () => (
         <Typography variant="subtitle1">
-            You have no items in your shopping cart,
-            <Link className={classes.link} to="/">start by adding some.</Link>
+            You have no items in your shopping cart, <Link className={classes.link} to="/">start by adding some</Link>!
         </Typography>
     );
 
@@ -33,7 +32,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
                     <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
                     <div>
                         <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty Cart</Button>
-                        <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary" onClick={handleEmptyCart}>Checkout Cart</Button>
+                        <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout Cart</Button>
                     </div>
             </div>
         </>
@@ -44,7 +43,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         <Container>
             <div className={classes.toolbar} />
             <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-            { !cart.lineItem.length ? renderEmptyCart : renderCart() }
+            { !cart.line_items.length ? renderEmptyCart() : renderCart() }
         </Container>
     )
 }

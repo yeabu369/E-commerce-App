@@ -43,7 +43,7 @@ const Checkout = ({ cart, onCaptureCheckout }) => {
     );
 
     const Form = () => (activeStep === 0
-        ? <AddressForm checkoutToken={checkoutToken} setShippingData={setShippingData} test={test} />
+        ? <AddressForm checkoutToken={checkoutToken} setShippingData={setShippingData} />
         : <PaymentForm checkoutToken={checkoutToken} shippingData={shippingData} onCaptureCheckout={onCaptureCheckout} />);
 
     return (
@@ -59,11 +59,11 @@ const Checkout = ({ cart, onCaptureCheckout }) => {
                             </Step>
                         ))}
                     </Stepper>
-                    {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
+                    { activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form /> }
                 </Paper>
             </main>
         </>
     );
 }
 
-export default Checkout
+export default Checkout;
